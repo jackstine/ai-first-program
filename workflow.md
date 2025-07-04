@@ -20,6 +20,7 @@ When this command is issued:
 project-name/
 ├── todo.md      # Task tracking with [ ] and [✅] format
 ├── plan.md      # Project implementation plan
+├── QA.md        # Questions and answers for project planning
 ├── main.go      # Single entry point (Go projects)
 ├── go.mod       # Module definition (Go projects)
 └── [other files as needed]
@@ -29,8 +30,9 @@ project-name/
 1. Create project directory
 2. Create `todo.md` with initial tasks
 3. Create `plan.md` with implementation approach
-4. Create language-specific files (go.mod, main.go, etc.)
-5. Test basic functionality before adding features
+4. Create `QA.md` with planning questions
+5. Create language-specific files (go.mod, main.go, etc.)
+6. Test basic functionality before adding features
 
 ## 2. Todo.md Management
 
@@ -70,29 +72,53 @@ project-name/
 - **ONLY** in main.go file
 - **NEVER** in utility or library files
 
+### Module Organization Rule:
+- **ALWAYS** organize code into logical modules for programming projects
+- **CREATE** separate directories for different concerns
+- **MAINTAIN** clear separation of responsibilities
+- **USE** Go package structure for organization
+
+### Recommended Module Structure:
+```
+project-name/
+├── main.go           # Entry point only
+├── go.mod           # Module definition
+├── internal/        # Private packages
+│   ├── game/        # Core game logic
+│   ├── ui/          # User interface components
+│   ├── ai/          # AI system
+│   ├── persistence/ # Save/load functionality
+│   └── config/      # Configuration management
+├── pkg/             # Public packages (if any)
+└── assets/          # Static files, graphics, etc.
+```
+
 ### File Organization:
 ```go
 // main.go - ONLY file with main()
 package main
 
+import (
+    "project-name/internal/game"
+    "project-name/internal/ui"
+)
+
 func main() {
     // Orchestrate program functionality
-    PrintHello()        // from hello.go
-    DemonstratePerson() // from person.go
+    game := game.NewGame()
+    ui.Start(game)
 }
 
-// hello.go - Utility file (NO main())
-package main
+// internal/game/game.go - Game logic module
+package game
 
-func PrintHello() {
-    fmt.Println("Hello, World!")
-}
+type Game struct { /* ... */ }
+func NewGame() *Game { /* ... */ }
 
-// person.go - Library file (NO main())
-package main
+// internal/ui/ui.go - UI module
+package ui
 
-type Person struct { /* ... */ }
-func DemonstratePerson() { /* ... */ }
+func Start(game *game.Game) { /* ... */ }
 ```
 
 ### Compilation Error Resolution:
@@ -146,23 +172,35 @@ func DemonstratePerson() { /* ... */ }
 4. `research.md` - Update with insights (if applicable)
 5. `todo.md` - Update task completion status
 
-## 6. Question Management
+## 6. Question Management (QA.md File)
+
+### QA.md File Requirements:
+- **EVERY** project MUST have a `QA.md` file
+- Created during project planning phase
+- Contains all project-related questions and answers
 
 ### Question Workflow:
-1. **ADD** new questions to "Questions" section
-2. **MOVE** answered questions to "Answered Questions"
-3. **FORMAT** answers with `- (A)` prefix, indented
-4. **UPDATE** research.md with insights from answers
-5. **CREATE** follow-up questions based on answers
+1. **CREATE** QA.md file with initial planning questions
+2. **ADD** new questions to "Questions" section
+3. **MOVE** answered questions to "Answered Questions"
+4. **FORMAT** answers with `- (A)` prefix, indented
+5. **UPDATE** plan.md with insights from answers
+6. **CREATE** follow-up questions based on answers
 
-### Format Example:
+### QA.md Format Example:
 ```markdown
+# Project Name Q&A
+
 ## Questions
 1. What is your experience with Go?
+2. What features do you want in the application?
 
 ## Answered Questions
 1. What is your experience with Go?
    - (A) I have 2 years of experience with Go development
+
+## Follow-up Questions
+1. Should we implement advanced Go patterns?
 ```
 
 ## 7. Learning Path Management
