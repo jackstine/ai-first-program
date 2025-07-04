@@ -270,6 +270,81 @@ func Start(game *game.Game) { /* ... */ }
 - [ ] All files properly organized
 - [ ] Documentation accurate and complete
 
+## 11. Application Development Planning
+
+### Pre-Development Risk Assessment
+Before beginning application development, identify potential challenges and plan mitigation strategies.
+
+### Common Development Challenges
+
+#### Technical Complexity Issues:
+- **Input Handling**: Multiple input types (keyboard + mouse) can conflict
+- **Performance**: Continuous animations may cause UI lag or flickering
+- **State Management**: Complex applications need careful state coordination
+- **Cross-Platform Compatibility**: Terminal features vary across systems
+- **Real-time Operations**: Frequent saves may block UI responsiveness
+
+#### Architecture Challenges:
+- **Module Integration**: Ensuring clean communication between modules
+- **Testing UI Components**: Bubble Tea models require special testing approaches
+- **Dependency Management**: External libraries may have version conflicts
+- **Error Handling**: Complex applications need comprehensive error strategies
+
+#### User Experience Issues:
+- **Information Density**: Too many UI elements can overwhelm users
+- **Terminal Size Variations**: Different screen sizes affect layout
+- **Color Support**: Not all terminals support full color palettes
+- **Accessibility**: Ensuring usability across different terminal configurations
+
+### Development Planning Process:
+1. **IDENTIFY** potential technical challenges early
+2. **RESEARCH** solutions and alternatives before coding
+3. **DESIGN** modular architecture to isolate complexity
+4. **CREATE** comprehensive testing strategy
+5. **PLAN** incremental development approach
+6. **DOCUMENT** architectural decisions and rationale
+
+### Risk Mitigation Strategies:
+- **Prototype Critical Features**: Test complex functionality early
+- **Implement Graceful Degradation**: Handle unsupported features
+- **Create Comprehensive Tests**: Unit test every function
+- **Use Feature Flags**: Enable/disable complex features
+- **Plan Rollback Strategies**: Keep simple fallback options
+
+## 12. Testing Standards
+
+### Testing Framework Requirements:
+- **ALWAYS** use Ginkgo and Gomega for Go testing
+- **UNIT TEST** every function that is created
+- **CREATE** test files alongside implementation files
+- **MAINTAIN** high test coverage (aim for 80%+)
+
+### Testing Structure:
+```
+internal/
+├── game/
+│   ├── game.go
+│   └── game_test.go    # Ginkgo/Gomega tests
+├── ai/
+│   ├── ai.go
+│   └── ai_test.go      # Ginkgo/Gomega tests
+```
+
+### Testing Workflow:
+1. **WRITE** tests before or alongside implementation (TDD approach)
+2. **TEST** each function individually (unit tests)
+3. **TEST** module integration (integration tests)
+4. **TEST** user scenarios (acceptance tests)
+5. **RUN** tests before every commit
+6. **MAINTAIN** test documentation
+
+### Ginkgo/Gomega Best Practices:
+- Use descriptive `Describe` and `It` blocks
+- Employ `BeforeEach` and `AfterEach` for setup/cleanup
+- Utilize Gomega matchers for clear assertions
+- Test both success and failure cases
+- Mock external dependencies properly
+
 ## Summary
 
-This workflow ensures consistent, systematic progress in learning Claude Code. Follow each step precisely, maintain accurate documentation, and track all progress in todo.md files. Use `#organize-wk` command to trigger workflow organization when needed.
+This workflow ensures consistent, systematic progress in learning Claude Code and developing robust applications. Follow each step precisely, maintain accurate documentation, track all progress in todo.md files, and always plan for potential development challenges. Use `#organize-wk` command to trigger workflow organization when needed.
