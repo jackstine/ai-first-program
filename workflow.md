@@ -228,3 +228,86 @@ Central repository for all Claude Code knowledge and findings.
 - [ ] Cross-file relationships maintained consistently
 
 This workflow ensures systematic learning progression while maintaining comprehensive documentation and avoiding duplicate work.
+
+## 7. Task Management and Todo Tracking Workflow
+
+### Todo.md Format Standards
+All todo.md files must use consistent formatting:
+- `- [ ]` for incomplete tasks
+- `- [✅]` for completed tasks
+
+### Task Creation Rules
+1. **Every suggestion** made by Claude must be added to the appropriate `todo.md` file
+2. **All new projects** must include a `todo.md` file with project-specific tasks
+3. **Plan before execute**: For complex problems, create detailed todo steps before implementation
+4. **Track granular progress**: Break complex tasks into smaller, trackable steps
+
+### Task Execution Workflow
+1. **Add tasks to todo.md** before starting work
+2. **Mark tasks in progress** when actively working (optional)
+3. **Complete tasks one by one** and mark with [✅] immediately
+4. **Update todo.md** after each completed task, not in batches
+5. **Document problems** encountered and solutions in todo tasks
+
+### Example Task Management Pattern
+```markdown
+## Project Setup Tasks
+- [ ] Create project directory structure
+- [ ] Initialize go.mod file
+- [ ] Create main.go with basic structure
+- [ ] Test with `go run .` command
+- [ ] Fix any compilation errors
+- [ ] Document final structure
+```
+
+## 8. Project Organization Workflow
+
+### Standard Project Structure
+Every new project must include:
+- `todo.md` - Project-specific tasks and progress tracking
+- `plan.md` - Implementation approach and architecture decisions
+- Main code files organized logically
+- `go.mod` for Go projects (or equivalent for other languages)
+
+### Project Folder Organization
+- **Separate folders** for each distinct project
+- **Clear naming conventions** for project directories
+- **Consistent file organization** within each project
+
+### Go Project Specific Rules
+1. **Single main() function** per project - only in `main.go`
+2. **Separate files** for different functionality (structs, utilities, etc.)
+3. **Remove main() functions** from non-main files, convert to utility functions
+4. **Test with `go run .`** to ensure project works as a cohesive unit
+5. **Fix compilation errors** by editing files, never deleting unless completely unused
+
+### Problem Resolution Workflow
+When encountering issues:
+1. **Never delete files** to solve compilation problems
+2. **Edit files** to remove conflicting code (like duplicate main() functions)
+3. **Plan the solution** by creating detailed todos first
+4. **Execute step by step** and test each change
+5. **Document the resolution** in the todo.md file
+
+### File Management Principles
+- **Preserve all work**: Edit to fix problems, don't delete unless truly unused
+- **Maintain references**: Keep functions and types that might be referenced elsewhere
+- **Convert conflicts**: Turn duplicate main() functions into utility functions
+- **Test incrementally**: Verify each change works before proceeding
+
+## 9. Communication and Progress Tracking
+
+### Progress Reporting
+- **Always update todo.md** when tasks are completed
+- **Mark progress visually** with [✅] checkmarks
+- **Maintain task history** for learning reference
+- **Document learnings** from each completed task
+
+### Task Suggestion Protocol
+When Claude provides suggestions:
+1. **Immediately add** to appropriate todo.md file
+2. **Organize tasks** logically and sequentially
+3. **Include context** about why tasks are needed
+4. **Set clear completion criteria** for each task
+
+This enhanced workflow ensures systematic progress tracking, proper project organization, and effective learning management throughout the Claude Code learning journey.
