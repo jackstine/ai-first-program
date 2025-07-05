@@ -15,6 +15,7 @@
 - [✅] Create a simple Go hello world program with Claude
 - [✅] Generate a basic Go struct for a Person with name, age, and email fields
 - [✅] Ask Claude to explain current project files
+- [✅] Research Claude Code /compact command and compacting behavior
 - [ ] Create tic-tac-toe Bubble Tea project in separate folder
 - [ ] Review and understand the tic-tac-toe project structure
 - [ ] Implement the tic-tac-toe game following the plan.md

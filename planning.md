@@ -397,7 +397,7 @@ claude mcp                      # Configure Model Context Protocol servers
 /bug          # Report bugs to Anthropic
 
 # Advanced features
-/compact      # Compact conversation with optional focus
+/compact      # Compact conversation with intelligent summarization
 ```
 
 #### Custom Slash Commands
@@ -552,3 +552,66 @@ $             # end of line
 - Can block or approve specific actions
 - Integrates with MCP tools
 - Configurable matching for tool interactions
+
+## Conversation Management Deep Dive
+
+### `/compact` Command - Revolutionary Context Management
+
+#### Core Functionality
+The `/compact` command is Claude Code's most revolutionary feature for context management. It intelligently condenses conversation history while preserving critical information, immediately freeing up valuable context space.
+
+#### Key Features
+1. **Intelligent Summarization**
+   - Rather than simply truncating history, Claude summarizes key points
+   - Prioritizes preserving code snippets and implementation details over general discussion
+   - AI-driven process that understands context importance
+
+2. **Contextual Preservation**
+   - Maintains crucial details about project structure and requirements
+   - Preserves critical information for session continuity
+   - Enables long coding sessions without losing project context
+
+3. **Automatic Context Management**
+   - Single command handles complex context management
+   - Maintains conversational flow without interruption
+   - Prevents losing critical project information
+
+#### Usage Syntax
+```bash
+/compact
+```
+- Simple one-command execution
+- No additional parameters or configuration options
+- Immediate context space reclamation
+
+#### When to Use `/compact`
+- **Natural breakpoints**: After completing features, fixing bugs, or making commits
+- **Context window limits**: When approaching maximum conversation length
+- **Complex projects**: Ideal for multi-file projects and long debugging sessions
+- **Before major changes**: When starting new phases of development
+
+#### `/compact` vs `/clear` Decision Matrix
+- **Use `/compact`**: When you want to preserve project context and continue current work
+- **Use `/clear`**: When conversation has gone off-track or contains irrelevant information
+- **Auto-compact warning**: During complex multi-step operations, auto-compacting can destroy progress due to insufficient detail in summaries
+
+#### Auto-Compacting Behavior
+- **Automatic trigger**: Occurs when context window fills up
+- **Background process**: Happens without user intervention
+- **Potential issues**: Can interrupt complex multi-step operations
+- **Context indicator**: Monitor context remaining (often shown in UI)
+
+#### Best Practices for Compacting
+1. **Proactive use**: Use `/compact` before hitting automatic limits
+2. **Strategic timing**: Compact at logical break points in your workflow
+3. **Monitor context**: Keep eye on context remaining indicator
+4. **Preserve state**: Ensure critical information is in files, not just conversation
+5. **Manual control**: Use manual `/compact` rather than relying on auto-compact during complex operations
+
+#### Limitations and Considerations
+- **No customization options**: Currently uses AI-driven automatic decision making
+- **Loss of detail**: Some conversation nuance may be lost in summarization
+- **Context dependency**: Effectiveness depends on conversation structure and content
+- **No selective preservation**: Cannot specify what to preserve vs compact
+
+The `/compact` command transforms context management from a manual, frustrating process to an intelligent, seamless experience that maintains productivity during long coding sessions.

@@ -37,3 +37,33 @@
 
 4. For the AI opponent - should it be random moves, or implement basic strategy (blocking wins, taking center, etc.)?
    - (A) Let's implement a basic strategy nothing complex, but let's also implement strategies for easy, normal hard, and I never lose. These will be the difficulty settings for the AI.
+
+## New Requirements Questions
+
+## Answered New Requirements
+1. How should the application handle input and controls?
+   - (A) I want to focus on the system and how input will be registered into the application, I want the ability to use keybindings. I want the keybindings to display on the terminal with the action it performs. I also want to have the ability to select a square on the tic-tac-toe with your mouse click.
+
+2. What should the application startup experience be?
+   - (A) I want the application to start up with a start screen, displaying a small graphic in eight bit picture showing the tic-tac-toe board somewhat filled out. Add the selected color scheme to this as well.
+
+3. How frequently should the application save data?
+   - (A) We should store saved files on every operation.
+
+## Additional UI Questions
+
+## Answered Additional UI Questions
+1. Should the keybindings show as a permanent panel, or toggle on/off?
+   - (A) Permanent panel
+
+2. What visual feedback do you want when hovering/clicking squares?
+   - (A) Clicking on the squares, add a little flare just make the square pop a little, be creative about it, use your best judgement.
+
+3. Any specific retro aesthetic preferences for 8-bit graphics?
+   - (A) Retro color palettes please.
+
+## Development Planning Questions
+
+## Answered Development Planning Questions
+1. What testing framework should we use for the Go application?
+   - (A) I want to create tests for the application, and we should always use ginkgo and gomega when testing go for every function that we create, we need to be able to unit test it.

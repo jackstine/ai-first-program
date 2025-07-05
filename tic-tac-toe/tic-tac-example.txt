@@ -1,0 +1,170 @@
+TIC-TAC-TOE BOARD LAYOUT EXAMPLE FOR 172x47 TERMINAL
+====================================================
+
+Terminal Dimensions: 172 columns x 47 lines
+Board Cell Size: ~15 characters per cell (for 172+ col terminals)
+Board Padding: 4 units
+Total Board Width: ~65 characters
+Horizontal Centering: ~53 columns from left edge
+
+FULL SCREEN LAYOUT:
+===================
+
+                                                     ┌─ TIC-TAC-TOE ─┐
+                                                     │               │
+                                                     │ Player vs AI  │
+                                                     │ Difficulty: Hard │
+                                                     │               │
+                                                     │ Press any key │
+                                                     │ to continue...│
+                                                     └───────────────┘
+
+
+GAME SCREEN LAYOUT (Showing board + side panels):
+=================================================
+
+     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+     ┃                                                                     ┃    GAME STATUS
+     ┃       X       │       O       │               │                     ┃    ───────────
+     ┃               │               │               │                     ┃    Current: Player X
+     ┃               │               │               │                     ┃    Status: In Progress  
+     ┃               │               │               │                     ┃    Mode: Player vs AI
+     ┃───────────────┼───────────────┼───────────────┤                     ┃    AI: Hard
+     ┃               │               │               │                     ┃
+     ┃               │   【  ◆  】   │               │                     ┃    SESSION SCORE
+     ┃               │               │               │                     ┃    ─────────────
+     ┃               │               │               │                     ┃    Player: 2 wins
+     ┃───────────────┼───────────────┼───────────────┤                     ┃    AI: 3 wins
+     ┃               │               │               │                     ┃    Draws: 1
+     ┃               │               │       O       │                     ┃    Total: 6 games
+     ┃               │               │               │                     ┃
+     ┃               │               │               │                     ┃    MOVE HISTORY
+     ┃               │               │               │                     ┃    ────────────
+     ┃                                                                     ┃    1. X -> (0,0)
+     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛    2. O -> (0,1)
+                                                                              3. O -> (2,2)
+
+                                                                              CONTROLS
+                                                                              ────────
+                                                                              ↑↓←→ Move cursor
+                                                                              Enter/Space Place mark
+                                                                              r Reset game
+                                                                              t Settings
+                                                                              ? Toggle help
+                                                                              g Cycle gradient
+                                                                              c Cycle cursor
+                                                                              esc Back to menu
+                                                                              q Quit
+
+                                                                              CURRENT CURSOR
+                                                                              ──────────────
+                                                                              Symbol: ◆
+                                                                              Index: 1/16
+
+
+DETAILED BOARD CELL STRUCTURE:
+==============================
+
+Each cell is 15 characters wide with the following structure:
+
+Empty Cell:               Occupied Cell (X):        Cursor Cell:
+┌───────────────┐        ┌───────────────┐         ┌───────────────┐
+│       ·       │        │       X       │         │   【  ◆  】   │
+└───────────────┘        └───────────────┘         └───────────────┘
+
+BOARD SEPARATOR LINES:
+=====================
+
+Horizontal separators span the full width:
+───────────────┼───────────────┼───────────────
+
+Vertical separators:
+ │  (3 characters: space, pipe, space)
+
+
+COMPLETE BOARD EXAMPLE (Middle cell selected):
+==============================================
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                     ┃
+┃                                                                     ┃
+┃       X       │       O       │       ·       │                     ┃
+┃               │               │               │                     ┃
+┃               │               │               │                     ┃
+┃               │               │               │                     ┃
+┃───────────────┼───────────────┼───────────────┤                     ┃
+┃               │               │               │                     ┃
+┃       ·       │   【  ◆  】   │       ·       │                     ┃
+┃               │               │               │                     ┃
+┃               │               │               │                     ┃
+┃───────────────┼───────────────┼───────────────┤                     ┃
+┃               │               │               │                     ┃
+┃       ·       │       ·       │       O       │                     ┃
+┃               │               │               │                     ┃
+┃               │               │               │                     ┃
+┃                                                                     ┃
+┃                                                                     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+LAYOUT CALCULATIONS:
+===================
+
+Terminal Width: 172 columns
+Reserve for side panel: 50 columns  
+Available for board: 122 columns
+Board target width: ~65 columns (60% of available)
+
+Cell calculation:
+- Target board width: 65 chars
+- 3 cells + 2 separators (6 chars) + borders (6 chars) = 12 chars overhead
+- Available for cells: 65 - 12 = 53 chars
+- Per cell: 53 ÷ 3 = ~17 chars per cell
+- Rounded down to 15 for clean display
+
+Centering:
+- Board width: 65 chars
+- Side panel: 50 chars  
+- Spacing: 4 chars
+- Total content: 119 chars
+- Left padding: (172 - 119) ÷ 2 = ~26 chars
+
+Vertical spacing:
+- Terminal height: 47 lines
+- Board height: ~15 lines
+- Remaining: 32 lines for UI elements
+- Top padding: ~5 lines
+- Bottom padding: ~5 lines  
+- Side panel content: ~22 lines
+
+
+CURSOR SIZE VARIATIONS:
+======================
+
+For 15-character cells, the cursor uses large format:
+
+Selected empty cell:     Selected X cell:         Selected O cell:
+┌───────────────┐       ┌───────────────┐        ┌───────────────┐
+│   【  ◆  】   │       │  ▶     X     ◀ │        │  ▶     O     ◀ │
+└───────────────┘       └───────────────┘        └───────────────┘
+
+
+COLOR AND GRADIENT EFFECTS:
+===========================
+
+All elements support gradient coloring:
+- Cursor: Animated gradient 【  ◆  】
+- X/O pieces: Gradient applied
+- Selected pieces: Enhanced gradient ▶  X  ◀
+- Board borders: Bright blue (#39)
+- Empty cells: Faint dots (·)
+
+
+This layout provides:
+✅ Massive, clearly defined board perfect for 172-column terminal
+✅ 100%+ larger than previous implementation  
+✅ Prominent cursor that scales with cell size
+✅ Full-width separator lines
+✅ Proper centering and spacing
+✅ Complete side panel with all game information
+✅ Professional appearance that utilizes full screen real estate
