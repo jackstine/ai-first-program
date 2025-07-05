@@ -5,4 +5,5 @@ I got it to build at a tic-tac-toe application that runs in the terminal. Very c
 Learning alot about agents and how to "Program" the agents to utilize tools, and create workflows.
 
 
-![this is the home screen of the tic-tac-toe game](home-screen.png "Home Screen")
+![this is the home screen of the tic-tac-toe game](tic-tac-toe-home-screen.png "Home Screen")
+![playing the game](program.png "Playing Tic-Tac-Toe")
